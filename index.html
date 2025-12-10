@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Prishanova PMC - Professional Project Management Consulting Services by Brijeshkumar Patel, PMP®">
+    <title>Prishanova PMC - Project Management Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0077b5 0%, #005582 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-info .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            padding: 1rem 1.5rem;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #0077b5;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #005582;
+        }
+        
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #0077b5;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #0077b5;
+            padding-bottom: 0.5rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #0077b5;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .service-card h3 {
+            color: #0077b5;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .expertise-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .expertise-tag {
+            background: #0077b5;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #0077b5 0%, #005582 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            border-bottom: 3px solid white;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0077b5;
+            padding: 1rem 3rem;
+            margin-top: 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255,255,255,0.3);
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+            }
+            
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                padding: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="profile-section">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQGCaZZ4W4J_Bw/profile-displayphoto-scale_100_100/B4EZm6YYI0HoAc-/0/1759768577524?e=1767225600&v=beta&t=GPulJknWD2MOxUPGa0ZqH-TTbT-NFajh148GUBftJK8" alt="Brijeshkumar Patel" class="profile-image">
+                    <div class="profile-info">
+                        <h1>Brijeshkumar Patel, PMP®</h1>
+                        <p class="tagline">Project Management Consultant | Delivering Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Prishanova PMC</h2>
+            <div class="about-content">
+                <p>Welcome to Prishanova PMC - your trusted partner in professional project management consulting. As a PMP® certified professional, I bring proven expertise in delivering complex projects on time, within budget, and exceeding stakeholder expectations.</p>
+                <br>
+                <p>With a commitment to excellence and a results-driven approach, I help organizations transform their project challenges into successful outcomes. Whether you're launching a new initiative, optimizing existing processes, or need expert guidance on critical projects, Prishanova PMC is here to support your success.</p>
+            </div>
+        </section>
+
+        <section id="services">
+            <h2>Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>🎯 Project Management</h3>
+                    <p>End-to-end project management services including planning, execution, monitoring, and closure. Ensuring your projects are delivered successfully with optimal resource utilization.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📊 PMO Setup & Optimization</h3>
+                    <p>Establish or enhance your Project Management Office with best practices, standardized processes, and governance frameworks tailored to your organization.</p>
+                </div>
+                <div class="service-card">
+                    <h3>🔄 Process Improvement</h3>
+                    <p>Analyze and optimize your project delivery processes using proven methodologies to increase efficiency, reduce costs, and improve outcomes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>📈 Strategic Planning</h3>
+                    <p>Align your projects with business objectives through strategic planning, portfolio management, and roadmap development.</p>
+                </div>
+                <div class="service-card">
+                    <h3>👥 Team Leadership & Training</h3>
+                    <p>Build high-performing project teams through leadership, coaching, and customized training programs in project management best practices.</p>
+                </div>
+                <div class="service-card">
+                    <h3>⚠️ Risk Management</h3>
+                    <p>Identify, assess, and mitigate project risks with comprehensive risk management strategies to protect your investments and ensure success.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise">
+            <h2>Areas of Expertise</h2>
+            <div class="expertise-list">
+                <span class="expertise-tag">PMP® Certified</span>
+                <span class="expertise-tag">Agile & Scrum</span>
+                <span class="expertise-tag">Waterfall Methodology</span>
+                <span class="expertise-tag">Stakeholder Management</span>
+                <span class="expertise-tag">Budget Management</span>
+                <span class="expertise-tag">Risk Assessment</span>
+                <span class="expertise-tag">Team Leadership</span>
+                <span class="expertise-tag">Process Optimization</span>
+                <span class="expertise-tag">Change Management</span>
+                <span class="expertise-tag">Quality Assurance</span>
+                <span class="expertise-tag">Resource Planning</span>
+                <span class="expertise-tag">Strategic Planning</span>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Transform Your Projects?</h2>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">Let's discuss how Prishanova PMC can help you achieve your project goals.</p>
+            <a href="mailto:brijeshpatel.bap@gmail.com" class="cta-button">Get In Touch</a>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h3>Prishanova PMC</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <a href="mailto:brijeshpatel.bap@gmail.com" style="color: white; text-decoration: none;">brijeshpatel.bap@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>🌐</span>
+                    <span>prishanovapmc.nl</span>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <a href="https://www.linkedin.com/in/brijeshkumar-patel" style="color: white; text-decoration: none;" target="_blank">LinkedIn Profile</a>
+                </div>
+            </div>
+            <p style="margin-top: 2rem; opacity: 0.8;">&copy; 2025 Prishanova PMC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
