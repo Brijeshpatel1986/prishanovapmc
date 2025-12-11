@@ -3,8 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Prishanova PMC - Professional Project Management Consulting Services by Brijeshkumar Patel, PMP® - 17+ Years Experience in Oil & Gas EPC/EPCC Projects">
-    <title>Prishanova PMC - Project Management Consulting</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Prishanova PMC - Project Management Consulting | Brijeshkumar Patel, PMP®</title>
+    <meta name="title" content="Prishanova PMC - Project Management Consulting | Brijeshkumar Patel, PMP®">
+    <meta name="description" content="Professional Project Management Consulting Services by Brijeshkumar Patel, PMP® - 17+ Years Experience in Oil & Gas EPC/EPCC Projects across Europe, Central Asia & India. Specialized in Primavera P6, Cost Control, and Workface Planning.">
+    <meta name="keywords" content="Project Management, PMP, EPC Projects, EPCC, Oil and Gas, Primavera P6, Cost Control, Workface Planning, Netherlands, Brijeshkumar Patel, Project Control, Construction Management">
+    <meta name="author" content="Brijeshkumar Patel">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://prishanovapmc.nl/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://prishanovapmc.nl/">
+    <meta property="og:title" content="Prishanova PMC - Project Management Consulting | Brijeshkumar Patel, PMP®">
+    <meta property="og:description" content="17+ Years of EPC/EPCC Project Management Excellence in Oil & Gas Sector. Specialized in Primavera P6, Cost Control, and Workface Planning.">
+    <meta property="og:site_name" content="Prishanova PMC">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://prishanovapmc.nl/">
+    <meta property="twitter:title" content="Prishanova PMC - Project Management Consulting">
+    <meta property="twitter:description" content="17+ Years of EPC/EPCC Project Management Excellence in Oil & Gas Sector">
+    
+    <!-- Geo Tags -->
+    <meta name="geo.region" content="NL-NB">
+    <meta name="geo.placename" content="Bergen op Zoom">
+    <meta name="geo.position" content="51.4950;4.2917">
+    <meta name="ICBM" content="51.4950, 4.2917">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Prishanova PMC",
+      "description": "Professional Project Management Consulting Services",
+      "url": "https://prishanovapmc.nl",
+      "telephone": "+31615691924",
+      "email": "brijeshpatel.bap@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bergen op Zoom",
+        "addressCountry": "NL"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Brijeshkumar Patel",
+        "jobTitle": "Project Management Consultant, PMP®",
+        "email": "brijeshpatel.bap@gmail.com",
+        "telephone": "+31615691924",
+        "sameAs": "https://linkedin.com/in/brijeshkumarpmp"
+      },
+      "areaServed": ["Europe", "Central Asia", "India"],
+      "serviceType": ["Project Management", "EPC Projects", "EPCC Projects", "Cost Control", "Workface Planning"]
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -94,10 +149,6 @@
         .logo-container {
             margin-bottom: 2rem;
             animation: fadeInDown 1s ease-out;
-            filter: drop-shadow(0 10px 30px rgba(199, 79, 201, 0.2));
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
             display: inline-block;
         }
         
@@ -106,6 +157,10 @@
             width: 100%;
             height: auto;
             display: block;
+            /* Remove white background using CSS filter */
+            filter: brightness(1.1) contrast(1.1) drop-shadow(0 10px 30px rgba(199, 79, 201, 0.2));
+            /* Alternative: Use mix-blend-mode */
+            mix-blend-mode: multiply;
         }
         
         .hero h1 {
@@ -402,6 +457,12 @@
             max-height: 70px;
             max-width: 180px;
             object-fit: contain;
+            filter: grayscale(100%) brightness(0.3);
+            transition: filter 0.3s ease;
+        }
+        
+        .client-card:hover .client-logo {
+            filter: grayscale(0%) brightness(1);
         }
         
         .client-name {
@@ -634,10 +695,6 @@
                 max-width: 280px;
             }
             
-            .logo-container {
-                padding: 1rem;
-            }
-            
             nav ul {
                 gap: 1rem;
             }
@@ -712,7 +769,7 @@
             <div class="clients-grid">
                 <div class="client-card">
                     <div class="client-logo-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/SABIC_logo.svg/320px-SABIC_logo.svg.png" alt="SABIC Logo" class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/SABIC_logo.svg" alt="SABIC Logo" class="client-logo" onerror="this.style.display='none'">
                     </div>
                     <div class="client-name">SABIC Netherlands</div>
                     <div class="client-role">Project Control Lead</div>
@@ -721,7 +778,7 @@
                 
                 <div class="client-card">
                     <div class="client-logo-wrapper">
-                        <img src="https://www.chemie-tech.nl/wp-content/uploads/2019/01/logo-chemie-tech.png" alt="Chemie-Tech Logo" class="client-logo">
+                        <img src="https://www.chemie-tech.nl/wp-content/uploads/2019/01/logo-chemie-tech.png" alt="Chemie-Tech Logo" class="client-logo" onerror="this.style.display='none'">
                     </div>
                     <div class="client-name">Chemie-Tech Netherlands BV</div>
                     <div class="client-role">Deputy Manager</div>
@@ -730,7 +787,7 @@
                 
                 <div class="client-card">
                     <div class="client-logo-wrapper">
-                        <img src="https://via.placeholder.com/180x70/1a2b4a/ffffff?text=KazStroyService" alt="KazStroyService Logo" class="client-logo">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-navy);">KazStroyService</div>
                     </div>
                     <div class="client-name">JSC OGCC KazStroyService</div>
                     <div class="client-role">Sr. Project Control Engineer</div>
@@ -739,7 +796,7 @@
                 
                 <div class="client-card">
                     <div class="client-logo-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Vedanta_Resources_logo.svg/320px-Vedanta_Resources_logo.svg.png" alt="Cairn India Logo" class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Vedanta_Resources_logo.svg" alt="Cairn India Logo" class="client-logo" onerror="this.style.display='none'">
                     </div>
                     <div class="client-name">Cairn India Ltd</div>
                     <div class="client-role">Planning & Control Engineer</div>
@@ -748,7 +805,7 @@
                 
                 <div class="client-card">
                     <div class="client-logo-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/CIMIC_Group_logo.svg/320px-CIMIC_Group_logo.svg.png" alt="Leighton Logo" class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/CIMIC_Group_logo.svg" alt="Leighton Logo" class="client-logo" onerror="this.style.display='none'">
                     </div>
                     <div class="client-name">Leighton India Contractors</div>
                     <div class="client-role">Planning & Control Engineer</div>
@@ -757,7 +814,7 @@
                 
                 <div class="client-card">
                     <div class="client-logo-wrapper">
-                        <img src="https://via.placeholder.com/180x70/1a2b4a/ffffff?text=Punj+Lloyd" alt="Punj Lloyd Logo" class="client-logo">
+                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-navy);">Punj Lloyd</div>
                     </div>
                     <div class="client-name">Punj Lloyd Ltd</div>
                     <div class="client-role">Planning Engineer</div>
@@ -766,7 +823,7 @@
                 
                 <div class="client-card">
                     <div class="client-logo-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Essar_Group_logo.svg/320px-Essar_Group_logo.svg.png" alt="Essar Logo" class="client-logo">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Essar_Group_logo.svg" alt="Essar Logo" class="client-logo" onerror="this.style.display='none'">
                     </div>
                     <div class="client-name">Essar Construction Ltd</div>
                     <div class="client-role">Planning Engineer</div>
@@ -854,7 +911,7 @@
                 </div>
                 <div class="contact-item">
                     <span>💼</span>
-                    <a href="https://linkedin.com/in/brijeshkumarpmp" target="_blank">LinkedIn</a>
+                    <a href="https://linkedin.com/in/brijeshkumarpmp" target="_blank" rel="noopener">LinkedIn</a>
                 </div>
                 <div class="contact-item">
                     <span>📍</span>
