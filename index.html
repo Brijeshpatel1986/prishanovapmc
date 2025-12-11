@@ -95,14 +95,17 @@
             margin-bottom: 2rem;
             animation: fadeInDown 1s ease-out;
             filter: drop-shadow(0 10px 30px rgba(199, 79, 201, 0.2));
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            display: inline-block;
         }
         
         .logo {
             max-width: 450px;
             width: 100%;
             height: auto;
-            /* Remove white background by making it transparent */
-            mix-blend-mode: multiply;
+            display: block;
         }
         
         .hero h1 {
@@ -385,12 +388,20 @@
             border-color: var(--primary-purple);
         }
         
-        .client-logo {
-            height: 70px;
+        .client-logo-wrapper {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 1.5rem;
-            object-fit: contain;
             position: relative;
             z-index: 1;
+        }
+        
+        .client-logo {
+            max-height: 70px;
+            max-width: 180px;
+            object-fit: contain;
         }
         
         .client-name {
@@ -623,6 +634,10 @@
                 max-width: 280px;
             }
             
+            .logo-container {
+                padding: 1rem;
+            }
+            
             nav ul {
                 gap: 1rem;
             }
@@ -696,49 +711,63 @@
             <h2>Trusted by Industry Leaders</h2>
             <div class="clients-grid">
                 <div class="client-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/SABIC_logo.svg/320px-SABIC_logo.svg.png" alt="SABIC" class="client-logo">
+                    <div class="client-logo-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/SABIC_logo.svg/320px-SABIC_logo.svg.png" alt="SABIC Logo" class="client-logo">
+                    </div>
                     <div class="client-name">SABIC Netherlands</div>
                     <div class="client-role">Project Control Lead</div>
                     <div class="client-duration">Dec 2019 - Present</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/chemie-tech.nl" alt="Chemie-Tech" class="client-logo" onerror="this.src='https://via.placeholder.com/200x70/1a2b4a/ffffff?text=Chemie-Tech'">
+                    <div class="client-logo-wrapper">
+                        <img src="https://www.chemie-tech.nl/wp-content/uploads/2019/01/logo-chemie-tech.png" alt="Chemie-Tech Logo" class="client-logo">
+                    </div>
                     <div class="client-name">Chemie-Tech Netherlands BV</div>
                     <div class="client-role">Deputy Manager</div>
                     <div class="client-duration">Feb 2018 - Nov 2019</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/kazstroyservice.kz" alt="KazStroyService" class="client-logo" onerror="this.src='https://via.placeholder.com/200x70/1a2b4a/ffffff?text=KazStroyService'">
+                    <div class="client-logo-wrapper">
+                        <img src="https://via.placeholder.com/180x70/1a2b4a/ffffff?text=KazStroyService" alt="KazStroyService Logo" class="client-logo">
+                    </div>
                     <div class="client-name">JSC OGCC KazStroyService</div>
                     <div class="client-role">Sr. Project Control Engineer</div>
                     <div class="client-duration">Nov 2014 - Feb 2018</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Vedanta_Resources_logo.svg/320px-Vedanta_Resources_logo.svg.png" alt="Cairn India" class="client-logo">
+                    <div class="client-logo-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Vedanta_Resources_logo.svg/320px-Vedanta_Resources_logo.svg.png" alt="Cairn India Logo" class="client-logo">
+                    </div>
                     <div class="client-name">Cairn India Ltd</div>
                     <div class="client-role">Planning & Control Engineer</div>
                     <div class="client-duration">Apr 2014 - Nov 2014</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/CIMIC_Group_logo.svg/320px-CIMIC_Group_logo.svg.png" alt="Leighton" class="client-logo">
+                    <div class="client-logo-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/CIMIC_Group_logo.svg/320px-CIMIC_Group_logo.svg.png" alt="Leighton Logo" class="client-logo">
+                    </div>
                     <div class="client-name">Leighton India Contractors</div>
                     <div class="client-role">Planning & Control Engineer</div>
                     <div class="client-duration">Feb 2013 - Apr 2014</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/punjlloydgroup.com" alt="Punj Lloyd" class="client-logo" onerror="this.src='https://via.placeholder.com/200x70/1a2b4a/ffffff?text=Punj+Lloyd'">
+                    <div class="client-logo-wrapper">
+                        <img src="https://via.placeholder.com/180x70/1a2b4a/ffffff?text=Punj+Lloyd" alt="Punj Lloyd Logo" class="client-logo">
+                    </div>
                     <div class="client-name">Punj Lloyd Ltd</div>
                     <div class="client-role">Planning Engineer</div>
                     <div class="client-duration">Jul 2007 - Feb 2013</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Essar_Group_logo.svg/320px-Essar_Group_logo.svg.png" alt="Essar" class="client-logo">
+                    <div class="client-logo-wrapper">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Essar_Group_logo.svg/320px-Essar_Group_logo.svg.png" alt="Essar Logo" class="client-logo">
+                    </div>
                     <div class="client-name">Essar Construction Ltd</div>
                     <div class="client-role">Planning Engineer</div>
                     <div class="client-duration">Jan 2006 - Jul 2007</div>
