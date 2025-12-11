@@ -30,27 +30,58 @@
             overflow-x: hidden;
         }
         
-        /* Hero Section - Tesla Style */
+        /* Hero Section - Tesla Style with Sun Rays */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #2a3f5f 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            color: white;
+            color: var(--primary-navy);
             text-align: center;
+            overflow: hidden;
         }
         
+        /* Sun Rays Background Effect */
         .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: 
+                repeating-conic-gradient(
+                    from 0deg at 50% 50%,
+                    transparent 0deg,
+                    rgba(255, 179, 128, 0.03) 2deg,
+                    transparent 4deg,
+                    transparent 8deg
+                );
+            animation: rotate 60s linear infinite;
+            pointer-events: none;
+        }
+        
+        /* Lotus Petal Decorations */
+        .hero::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(199, 79, 201, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(255, 179, 128, 0.1) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(199, 79, 201, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 179, 128, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(199, 79, 201, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
         }
         
         .hero-content {
@@ -63,12 +94,15 @@
         .logo-container {
             margin-bottom: 2rem;
             animation: fadeInDown 1s ease-out;
+            filter: drop-shadow(0 10px 30px rgba(199, 79, 201, 0.2));
         }
         
         .logo {
-            max-width: 400px;
+            max-width: 450px;
             width: 100%;
             height: auto;
+            /* Remove white background by making it transparent */
+            mix-blend-mode: multiply;
         }
         
         .hero h1 {
@@ -77,26 +111,28 @@
             margin-bottom: 1rem;
             letter-spacing: -1px;
             animation: fadeInUp 1s ease-out 0.2s both;
+            color: var(--primary-navy);
         }
         
         .hero .tagline {
             font-size: 1.5rem;
-            font-weight: 300;
+            font-weight: 400;
             margin-bottom: 1rem;
-            opacity: 0.9;
             animation: fadeInUp 1s ease-out 0.4s both;
+            color: var(--primary-navy);
         }
         
         .hero .experience-badge {
             display: inline-block;
-            background: rgba(255, 179, 128, 0.2);
-            border: 2px solid var(--primary-orange);
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-orange));
+            color: white;
             padding: 0.8rem 2rem;
             border-radius: 50px;
             font-size: 1.2rem;
             font-weight: 500;
             margin-top: 1rem;
             animation: fadeInUp 1s ease-out 0.6s both;
+            box-shadow: 0 4px 20px rgba(199, 79, 201, 0.3);
         }
         
         .scroll-indicator {
@@ -105,6 +141,7 @@
             left: 50%;
             transform: translateX(-50%);
             animation: bounce 2s infinite;
+            color: var(--primary-purple);
         }
         
         .scroll-indicator::after {
@@ -153,11 +190,12 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(26, 43, 74, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
             transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         
         nav.scrolled {
@@ -174,7 +212,7 @@
         
         nav ul li a {
             text-decoration: none;
-            color: white;
+            color: var(--primary-navy);
             font-weight: 500;
             font-size: 0.95rem;
             transition: color 0.3s;
@@ -182,7 +220,7 @@
         }
         
         nav ul li a:hover {
-            color: var(--primary-orange);
+            color: var(--primary-purple);
         }
         
         /* Container */
@@ -192,7 +230,7 @@
             padding: 0 2rem;
         }
         
-        /* Section Styling */
+        /* Section Styling with Lotus Pattern */
         section {
             padding: 6rem 0;
             position: relative;
@@ -202,6 +240,31 @@
             background: var(--bg-light);
         }
         
+        /* Decorative Lotus Petals in Sections */
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(199, 79, 201, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 179, 128, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
         h2 {
             font-size: 2.5rem;
             font-weight: 300;
@@ -209,6 +272,8 @@
             text-align: center;
             color: var(--primary-navy);
             letter-spacing: -0.5px;
+            position: relative;
+            z-index: 1;
         }
         
         h2::after {
@@ -226,6 +291,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
             margin: 4rem 0;
+            position: relative;
+            z-index: 1;
         }
         
         .stat-card {
@@ -235,6 +302,20 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Lotus petal decoration in stat cards */
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(255, 179, 128, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
         }
         
         .stat-card:hover {
@@ -263,16 +344,39 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+            position: relative;
+            z-index: 1;
         }
         
         .client-card {
             background: white;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Sun ray effect on hover */
+        .client-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(255, 179, 128, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            transition: all 0.5s ease;
+        }
+        
+        .client-card:hover::before {
+            width: 300px;
+            height: 300px;
         }
         
         .client-card:hover {
@@ -282,9 +386,11 @@
         }
         
         .client-logo {
-            height: 60px;
+            height: 70px;
             margin-bottom: 1.5rem;
             object-fit: contain;
+            position: relative;
+            z-index: 1;
         }
         
         .client-name {
@@ -292,18 +398,24 @@
             color: var(--primary-navy);
             font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
         
         .client-role {
             color: var(--text-light);
             font-size: 0.95rem;
             margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
         }
         
         .client-duration {
             color: var(--primary-purple);
             font-size: 0.9rem;
             font-weight: 500;
+            position: relative;
+            z-index: 1;
         }
         
         /* Services Grid */
@@ -312,6 +424,8 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
+            position: relative;
+            z-index: 1;
         }
         
         .service-card {
@@ -321,6 +435,19 @@
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
             border-left: 4px solid var(--primary-purple);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255, 179, 128, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
         }
         
         .service-card:hover {
@@ -348,6 +475,8 @@
             gap: 1rem;
             margin-top: 2rem;
             justify-content: center;
+            position: relative;
+            z-index: 1;
         }
         
         .expertise-tag {
@@ -358,10 +487,12 @@
             font-size: 0.95rem;
             font-weight: 500;
             transition: transform 0.3s ease;
+            box-shadow: 0 2px 10px rgba(199, 79, 201, 0.2);
         }
         
         .expertise-tag:hover {
             transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(199, 79, 201, 0.3);
         }
         
         /* CTA Section */
@@ -374,15 +505,35 @@
             overflow: hidden;
         }
         
+        /* Sun rays in CTA */
         .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: 
+                repeating-conic-gradient(
+                    from 0deg at 50% 50%,
+                    transparent 0deg,
+                    rgba(255, 179, 128, 0.05) 2deg,
+                    transparent 4deg,
+                    transparent 8deg
+                );
+            animation: rotate 60s linear infinite;
+        }
+        
+        .cta-section::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(199, 79, 201, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 50%, rgba(255, 179, 128, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 50%, rgba(199, 79, 201, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(255, 179, 128, 0.1) 0%, transparent 50%);
         }
         
         .cta-section h2 {
@@ -454,6 +605,8 @@
             color: var(--text-light);
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         /* Responsive */
@@ -543,49 +696,49 @@
             <h2>Trusted by Industry Leaders</h2>
             <div class="clients-grid">
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/sabic.com" alt="SABIC" class="client-logo" onerror="this.style.display='none'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/SABIC_logo.svg/320px-SABIC_logo.svg.png" alt="SABIC" class="client-logo">
                     <div class="client-name">SABIC Netherlands</div>
                     <div class="client-role">Project Control Lead</div>
                     <div class="client-duration">Dec 2019 - Present</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/chemie-tech.nl" alt="Chemie-Tech" class="client-logo" onerror="this.style.display='none'">
+                    <img src="https://logo.clearbit.com/chemie-tech.nl" alt="Chemie-Tech" class="client-logo" onerror="this.src='https://via.placeholder.com/200x70/1a2b4a/ffffff?text=Chemie-Tech'">
                     <div class="client-name">Chemie-Tech Netherlands BV</div>
                     <div class="client-role">Deputy Manager</div>
                     <div class="client-duration">Feb 2018 - Nov 2019</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/kazstroyservice.kz" alt="KazStroyService" class="client-logo" onerror="this.style.display='none'">
+                    <img src="https://logo.clearbit.com/kazstroyservice.kz" alt="KazStroyService" class="client-logo" onerror="this.src='https://via.placeholder.com/200x70/1a2b4a/ffffff?text=KazStroyService'">
                     <div class="client-name">JSC OGCC KazStroyService</div>
                     <div class="client-role">Sr. Project Control Engineer</div>
                     <div class="client-duration">Nov 2014 - Feb 2018</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/vedantaresources.com" alt="Cairn India" class="client-logo" onerror="this.style.display='none'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Vedanta_Resources_logo.svg/320px-Vedanta_Resources_logo.svg.png" alt="Cairn India" class="client-logo">
                     <div class="client-name">Cairn India Ltd</div>
                     <div class="client-role">Planning & Control Engineer</div>
                     <div class="client-duration">Apr 2014 - Nov 2014</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/cimic.com.au" alt="Leighton" class="client-logo" onerror="this.style.display='none'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/CIMIC_Group_logo.svg/320px-CIMIC_Group_logo.svg.png" alt="Leighton" class="client-logo">
                     <div class="client-name">Leighton India Contractors</div>
                     <div class="client-role">Planning & Control Engineer</div>
                     <div class="client-duration">Feb 2013 - Apr 2014</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/punjlloydgroup.com" alt="Punj Lloyd" class="client-logo" onerror="this.style.display='none'">
+                    <img src="https://logo.clearbit.com/punjlloydgroup.com" alt="Punj Lloyd" class="client-logo" onerror="this.src='https://via.placeholder.com/200x70/1a2b4a/ffffff?text=Punj+Lloyd'">
                     <div class="client-name">Punj Lloyd Ltd</div>
                     <div class="client-role">Planning Engineer</div>
                     <div class="client-duration">Jul 2007 - Feb 2013</div>
                 </div>
                 
                 <div class="client-card">
-                    <img src="https://logo.clearbit.com/essar.com" alt="Essar" class="client-logo" onerror="this.style.display='none'">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Essar_Group_logo.svg/320px-Essar_Group_logo.svg.png" alt="Essar" class="client-logo">
                     <div class="client-name">Essar Construction Ltd</div>
                     <div class="client-role">Planning Engineer</div>
                     <div class="client-duration">Jan 2006 - Jul 2007</div>
