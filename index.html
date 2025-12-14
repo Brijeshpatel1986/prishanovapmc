@@ -85,7 +85,7 @@
             overflow-x: hidden;
         }
         
-        /* Hero Section - Tesla Style with Sun Rays */
+        /* Hero Section */
         .hero {
             height: 100vh;
             background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
@@ -98,7 +98,6 @@
             overflow: hidden;
         }
         
-        /* Sun Rays Background Effect */
         .hero::before {
             content: '';
             position: absolute;
@@ -119,7 +118,6 @@
             pointer-events: none;
         }
         
-        /* Lotus Petal Decorations */
         .hero::after {
             content: '';
             position: absolute;
@@ -157,9 +155,7 @@
             width: 100%;
             height: auto;
             display: block;
-            /* Remove white background using CSS filter */
             filter: brightness(1.1) contrast(1.1) drop-shadow(0 10px 30px rgba(199, 79, 201, 0.2));
-            /* Alternative: Use mix-blend-mode */
             mix-blend-mode: multiply;
         }
         
@@ -288,7 +284,7 @@
             padding: 0 2rem;
         }
         
-        /* Section Styling with Lotus Pattern */
+        /* Section Styling */
         section {
             padding: 6rem 0;
             position: relative;
@@ -298,7 +294,6 @@
             background: var(--bg-light);
         }
         
-        /* Decorative Lotus Petals in Sections */
         section::before {
             content: '';
             position: absolute;
@@ -364,7 +359,6 @@
             overflow: hidden;
         }
         
-        /* Lotus petal decoration in stat cards */
         .stat-card::before {
             content: '';
             position: absolute;
@@ -396,98 +390,50 @@
             font-size: 1.1rem;
         }
         
-        /* Clients Grid */
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .client-card {
+        /* Horizontal Clients Ticker */
+        .clients-section {
             background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-            position: relative;
+            padding: 4rem 0;
             overflow: hidden;
         }
         
-        /* Sun ray effect on hover */
-        .client-card::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            background: radial-gradient(circle, rgba(255, 179, 128, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            transition: all 0.5s ease;
-        }
-        
-        .client-card:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        
-        .client-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(199, 79, 201, 0.15);
-            border-color: var(--primary-purple);
-        }
-        
-        .client-logo-wrapper {
-            height: 80px;
+        .clients-ticker {
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
+            gap: 4rem;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
         }
         
-        .client-logo {
-            max-height: 70px;
-            max-width: 180px;
-            object-fit: contain;
-            filter: grayscale(100%) brightness(0.3);
-            transition: filter 0.3s ease;
+        .clients-ticker:hover {
+            animation-play-state: paused;
         }
         
-        .client-card:hover .client-logo {
-            filter: grayscale(0%) brightness(1);
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
         }
         
-        .client-name {
+        .client-name-item {
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary-navy);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, rgba(199, 79, 201, 0.05), rgba(255, 179, 128, 0.05));
+            border-radius: 50px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
         
-        .client-role {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .client-duration {
-            color: var(--primary-purple);
-            font-size: 0.9rem;
-            font-weight: 500;
-            position: relative;
-            z-index: 1;
+        .client-name-item:hover {
+            border-color: var(--primary-purple);
+            transform: scale(1.05);
+            box-shadow: 0 4px 20px rgba(199, 79, 201, 0.2);
         }
         
         /* Services Grid */
@@ -540,31 +486,56 @@
             line-height: 1.8;
         }
         
-        /* Expertise Tags */
-        .expertise-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-            justify-content: center;
+        /* Skills Section */
+        .skills-container {
             position: relative;
             z-index: 1;
         }
         
-        .expertise-tag {
-            background: linear-gradient(135deg, var(--primary-purple), var(--primary-orange));
-            color: white;
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 10px rgba(199, 79, 201, 0.2);
+        .skill-category {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
         }
         
-        .expertise-tag:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(199, 79, 201, 0.3);
+        .skill-category h3 {
+            color: var(--primary-navy);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-purple);
+        }
+        
+        .skill-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .skill-icon {
+            font-size: 1.5rem;
+            color: var(--primary-purple);
+            flex-shrink: 0;
+        }
+        
+        .skill-content h4 {
+            color: var(--primary-navy);
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .skill-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         /* CTA Section */
@@ -577,7 +548,6 @@
             overflow: hidden;
         }
         
-        /* Sun rays in CTA */
         .cta-section::before {
             content: '';
             position: absolute;
@@ -706,6 +676,11 @@
             section {
                 padding: 4rem 0;
             }
+            
+            .client-name-item {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -716,7 +691,7 @@
             <li><a href="#about">About</a></li>
             <li><a href="#clients">Clients</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -763,124 +738,297 @@
         </div>
     </section>
 
-    <section id="clients">
+    <section id="clients" class="clients-section">
         <div class="container">
             <h2>Trusted by Industry Leaders</h2>
-            <div class="clients-grid">
-                <div class="client-card">
-                    <div class="client-logo-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/SABIC_logo.svg" alt="SABIC Logo" class="client-logo" onerror="this.style.display='none'">
-                    </div>
-                    <div class="client-name">SABIC Netherlands</div>
-                    <div class="client-role">Project Control Lead</div>
-                    <div class="client-duration">Dec 2019 - Present</div>
-                </div>
-                
-                <div class="client-card">
-                    <div class="client-logo-wrapper">
-                        <img src="https://www.chemie-tech.nl/wp-content/uploads/2019/01/logo-chemie-tech.png" alt="Chemie-Tech Logo" class="client-logo" onerror="this.style.display='none'">
-                    </div>
-                    <div class="client-name">Chemie-Tech Netherlands BV</div>
-                    <div class="client-role">Deputy Manager</div>
-                    <div class="client-duration">Feb 2018 - Nov 2019</div>
-                </div>
-                
-                <div class="client-card">
-                    <div class="client-logo-wrapper">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-navy);">KazStroyService</div>
-                    </div>
-                    <div class="client-name">JSC OGCC KazStroyService</div>
-                    <div class="client-role">Sr. Project Control Engineer</div>
-                    <div class="client-duration">Nov 2014 - Feb 2018</div>
-                </div>
-                
-                <div class="client-card">
-                    <div class="client-logo-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Vedanta_Resources_logo.svg" alt="Cairn India Logo" class="client-logo" onerror="this.style.display='none'">
-                    </div>
-                    <div class="client-name">Cairn India Ltd</div>
-                    <div class="client-role">Planning & Control Engineer</div>
-                    <div class="client-duration">Apr 2014 - Nov 2014</div>
-                </div>
-                
-                <div class="client-card">
-                    <div class="client-logo-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/CIMIC_Group_logo.svg" alt="Leighton Logo" class="client-logo" onerror="this.style.display='none'">
-                    </div>
-                    <div class="client-name">Leighton India Contractors</div>
-                    <div class="client-role">Planning & Control Engineer</div>
-                    <div class="client-duration">Feb 2013 - Apr 2014</div>
-                </div>
-                
-                <div class="client-card">
-                    <div class="client-logo-wrapper">
-                        <div style="font-size: 1.5rem; font-weight: 700; color: var(--primary-navy);">Punj Lloyd</div>
-                    </div>
-                    <div class="client-name">Punj Lloyd Ltd</div>
-                    <div class="client-role">Planning Engineer</div>
-                    <div class="client-duration">Jul 2007 - Feb 2013</div>
-                </div>
-                
-                <div class="client-card">
-                    <div class="client-logo-wrapper">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Essar_Group_logo.svg" alt="Essar Logo" class="client-logo" onerror="this.style.display='none'">
-                    </div>
-                    <div class="client-name">Essar Construction Ltd</div>
-                    <div class="client-role">Planning Engineer</div>
-                    <div class="client-duration">Jan 2006 - Jul 2007</div>
-                </div>
+            <div class="clients-ticker">
+                <span class="client-name-item">SABIC Netherlands</span>
+                <span class="client-name-item">Chemie-Tech Netherlands BV</span>
+                <span class="client-name-item">JSC OGCC KazStroyService</span>
+                <span class="client-name-item">Cairn India Ltd</span>
+                <span class="client-name-item">Leighton India Contractors</span>
+                <span class="client-name-item">Punj Lloyd Ltd</span>
+                <span class="client-name-item">Essar Construction Ltd</span>
+                <!-- Duplicate for seamless loop -->
+                <span class="client-name-item">SABIC Netherlands</span>
+                <span class="client-name-item">Chemie-Tech Netherlands BV</span>
+                <span class="client-name-item">JSC OGCC KazStroyService</span>
+                <span class="client-name-item">Cairn India Ltd</span>
+                <span class="client-name-item">Leighton India Contractors</span>
+                <span class="client-name-item">Punj Lloyd Ltd</span>
+                <span class="client-name-item">Essar Construction Ltd</span>
             </div>
         </div>
     </section>
 
     <section id="services">
         <div class="container">
-            <h2>Services</h2>
+            <h2>Comprehensive Services</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <h3>🎯 EPC/EPCC Project Management</h3>
-                    <p>Full-cycle project management for oil & gas, petrochemical, and energy sector projects. Expertise in brownfield and greenfield developments up to €400M.</p>
+                    <p>Full-cycle project management for oil & gas, petrochemical, and energy sector projects. Expertise in brownfield and greenfield developments up to €400M with proven delivery excellence.</p>
                 </div>
+                
                 <div class="service-card">
                     <h3>📊 Project Planning & Control</h3>
-                    <p>Primavera P6 scheduling, baseline development, critical path analysis, earned value management (EVM), and forecast-to-completion assessments.</p>
+                    <p>Advanced Primavera P6 scheduling, baseline development, critical path analysis, earned value management (EVM), resource leveling, and forecast-to-completion assessments.</p>
                 </div>
+                
                 <div class="service-card">
                     <h3>💰 Cost Management & Control</h3>
-                    <p>TIC/FAC tracking, change order impact analysis, budget management, and comprehensive financial reporting for complex projects.</p>
+                    <p>Comprehensive TIC/FAC tracking, change order impact analysis, budget management, variance analysis, and detailed financial reporting for complex multi-million euro projects.</p>
                 </div>
+                
                 <div class="service-card">
                     <h3>🔧 Workface Planning</h3>
-                    <p>Construction work pack development, installation work packages, and field execution planning using Chevron's Workface Planning Model.</p>
+                    <p>Construction work pack development, installation work packages, field execution planning using Chevron's Workface Planning Model, and constraint management.</p>
                 </div>
+                
                 <div class="service-card">
                     <h3>⚠️ Risk Assessment & Mitigation</h3>
-                    <p>Risk-based planning, schedule impact assessments, delay analysis, and recovery planning with proven mitigation strategies.</p>
+                    <p>Proactive risk identification, quantitative risk analysis, schedule impact assessments, delay analysis, recovery planning, and proven mitigation strategies.</p>
                 </div>
+                
                 <div class="service-card">
-                    <h3>📈 Performance Monitoring</h3>
-                    <p>S-curves, commodity tracking, PBI dashboards, KPI development, and executive-level progress reporting.</p>
+                    <h3>📈 Performance Monitoring & Reporting</h3>
+                    <p>S-curves development, commodity tracking, PBI dashboards, KPI development, executive-level progress reporting, and comprehensive performance analytics.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>🔍 Project Management Process Auditing</h3>
+                    <p>Comprehensive auditing of existing project management processes, identification of gaps and inefficiencies, and fine-tuning methodologies to align with project-specific needs and industry best practices.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>📦 Customized Project Management Packages</h3>
+                    <p>Development of tailored project management frameworks and packages designed for different organizational levels - from executive oversight to field execution - ensuring seamless project delivery.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>👥 Trusted Resource Provision</h3>
+                    <p>Access to a network of highly qualified, vetted project management professionals and technical resources who deliver exceptional quality and reliability across all project phases.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="expertise">
+    <section id="skills">
         <div class="container">
-            <h2>Core Competencies</h2>
-            <div class="expertise-list">
-                <span class="expertise-tag">PMP® Certified</span>
-                <span class="expertise-tag">Primavera P6</span>
-                <span class="expertise-tag">EPC/EPCC Projects</span>
-                <span class="expertise-tag">Oil & Gas Sector</span>
-                <span class="expertise-tag">Cost Control</span>
-                <span class="expertise-tag">Schedule Management</span>
-                <span class="expertise-tag">Workface Planning</span>
-                <span class="expertise-tag">Earned Value Management</span>
-                <span class="expertise-tag">Risk Management</span>
-                <span class="expertise-tag">SAP</span>
-                <span class="expertise-tag">MS Project</span>
-                <span class="expertise-tag">Contract Management</span>
+            <h2>Core Competencies & Technical Skills</h2>
+            <div class="skills-container">
+                
+                <div class="skill-category">
+                    <h3>🎓 Project Management Expertise</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>PMBOK Lifecycle Management</h4>
+                                <p>Complete mastery of project initiation, planning, execution, monitoring/control, and closure phases for complex EPC/EPCC projects</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Stakeholder Engagement</h4>
+                                <p>Expert coordination of multidisciplinary teams, client relations, contractor management, and regulatory compliance</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Contract Management</h4>
+                                <p>Proficient in FIDIC, EJCDC contracts, RFP development, bidding processes, and commercial negotiations</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>QHSE Integration</h4>
+                                <p>Quality, Health, Safety, Environmental compliance and risk-averse practices for high-stakes oil & gas operations</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>💻 Technical & Software Proficiency</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Primavera P6 Advanced</h4>
+                                <p>Critical path scheduling, resource allocation, task dependencies, baseline management, progress tracking, and interface management for mega-projects</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Earned Value Management (EVM)</h4>
+                                <p>Performance measurement, variance analysis (SV, CV), forecasting (EAC, ETC), and trend analysis using industry-standard methodologies</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>SAP & ERP Systems</h4>
+                                <p>Financial tracking, procurement management, resource planning, and integrated project controls</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>MS Project & Office Suite</h4>
+                                <p>Advanced scheduling, reporting, data analysis, and executive presentation development</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Power BI & Analytics</h4>
+                                <p>Dashboard creation, KPI visualization, real-time reporting, and data-driven decision support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>📊 Cost Control & Financial Management</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Budget Development & Control</h4>
+                                <p>TIC/FAC tracking, cost baseline establishment, budget allocation, and financial forecasting for projects up to €400M</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Change Management</h4>
+                                <p>Change order evaluation, cost impact analysis, scope variation control, and claim administration</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Cost Engineering</h4>
+                                <p>Estimate validation, cost-benefit analysis, value engineering, and optimization strategies</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Financial Reporting</h4>
+                                <p>Executive dashboards, variance reports, cash flow analysis, and comprehensive financial documentation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>⚙️ Construction & Execution Planning</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Work Breakdown Structure (WBS)</h4>
+                                <p>Detailed decomposition of project scope, work package development, and hierarchical organization</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Construction Work Packs</h4>
+                                <p>Installation work packages, constraint removal, material management, and field execution optimization</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Resource Management</h4>
+                                <p>Resource leveling, allocation optimization, productivity tracking, and workforce planning</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Commissioning & Handover</h4>
+                                <p>Pre-commissioning planning, system turnover, punch list management, and project closeout</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🎯 Risk & Quality Management</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Quantitative Risk Analysis</h4>
+                                <p>Monte Carlo simulation, sensitivity analysis, risk modeling, and contingency planning</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Schedule Risk Assessment</h4>
+                                <p>Critical path analysis, float management, delay impact analysis, and recovery schedule development</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Quality Assurance/Control</h4>
+                                <p>QA/QC procedures, inspection planning, non-conformance management, and quality documentation</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Mitigation Strategies</h4>
+                                <p>Proactive risk response planning, contingency activation, and corrective action implementation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>🌍 Industry-Specific Knowledge</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Oil & Gas Operations</h4>
+                                <p>Upstream/downstream processes, drilling operations, production facilities, pipelines, and refineries</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Petrochemical Projects</h4>
+                                <p>Process plant construction, equipment installation, utility systems, and facility integration</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>Brownfield & Greenfield</h4>
+                                <p>Expertise in both new facility construction and existing plant modifications/expansions</p>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-icon">✓</span>
+                            <div class="skill-content">
+                                <h4>International Projects</h4>
+                                <p>Cross-cultural team management, multi-jurisdictional compliance, and global project delivery</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
