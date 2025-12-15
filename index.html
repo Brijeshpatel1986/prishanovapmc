@@ -388,6 +388,94 @@
             margin-top: 0.5rem;
             font-size: 1.1rem;
         }
+
+        /* World Map Section */
+        .world-map-section {
+            background: white;
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: linear-gradient(135deg, rgba(199, 79, 201, 0.03), rgba(255, 179, 128, 0.03));
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .map-svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.05));
+        }
+
+        .country {
+            fill: #e0e0e0;
+            stroke: #ffffff;
+            stroke-width: 0.5;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .country.active {
+            fill: var(--primary-purple);
+            stroke: var(--primary-orange);
+            stroke-width: 1.5;
+            filter: drop-shadow(0 0 8px rgba(199, 79, 201, 0.6));
+        }
+
+        .country.active:hover {
+            fill: var(--primary-orange);
+        }
+
+        .country:not(.active):hover {
+            fill: #c0c0c0;
+        }
+
+        .countries-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 1rem 2rem;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .legend-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(199, 79, 201, 0.2);
+        }
+
+        .legend-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-orange));
+            box-shadow: 0 0 10px rgba(199, 79, 201, 0.5);
+        }
+
+        .legend-text {
+            font-weight: 600;
+            color: var(--primary-navy);
+            font-size: 1.1rem;
+        }
         
         /* Horizontal Clients Ticker */
         .clients-section {
@@ -680,6 +768,18 @@
                 font-size: 1.2rem;
                 padding: 0.8rem 1.5rem;
             }
+
+            .map-container {
+                padding: 1.5rem;
+            }
+
+            .legend-item {
+                padding: 0.8rem 1.5rem;
+            }
+
+            .legend-text {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -688,6 +788,7 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
+            <li><a href="#global-reach">Global Reach</a></li>
             <li><a href="#clients">Clients</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -732,6 +833,67 @@
                 <div class="stat-card">
                     <div class="stat-number">3</div>
                     <div class="stat-label">Continents</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="global-reach" class="world-map-section">
+        <div class="container">
+            <h2>Global Project Delivery</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: var(--text-light); margin-bottom: 3rem; position: relative; z-index: 1;">
+                Successfully delivered EPC/EPCC projects across three continents
+            </p>
+            
+            <div class="map-container">
+                <svg class="map-svg" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Simplified World Map -->
+                    <!-- Europe -->
+                    <path class="country" d="M 480 120 L 490 115 L 500 120 L 505 130 L 500 140 L 490 145 L 480 140 Z" data-country="europe"/>
+                    
+                    <!-- Netherlands (highlighted) -->
+                    <path class="country active" d="M 485 125 L 492 122 L 497 127 L 495 133 L 488 135 L 483 130 Z" data-country="netherlands"/>
+                    
+                    <!-- Central Asia / Kazakhstan -->
+                    <path class="country active" d="M 580 140 L 620 135 L 650 145 L 655 160 L 640 170 L 610 165 L 585 155 Z" data-country="kazakhstan"/>
+                    
+                    <!-- India -->
+                    <path class="country active" d="M 680 240 L 700 235 L 720 245 L 725 265 L 715 285 L 700 290 L 685 280 L 675 260 Z" data-country="india"/>
+                    
+                    <!-- Other continents (non-active) -->
+                    <!-- North America -->
+                    <path class="country" d="M 150 100 L 250 90 L 280 120 L 270 180 L 220 200 L 180 190 L 140 150 Z" data-country="north-america"/>
+                    
+                    <!-- South America -->
+                    <path class="country" d="M 280 280 L 320 270 L 340 300 L 350 350 L 330 380 L 300 370 L 280 340 Z" data-country="south-america"/>
+                    
+                    <!-- Africa -->
+                    <path class="country" d="M 480 220 L 540 210 L 560 250 L 550 310 L 520 340 L 490 330 L 470 280 Z" data-country="africa"/>
+                    
+                    <!-- Australia -->
+                    <path class="country" d="M 780 340 L 850 335 L 880 360 L 870 390 L 830 400 L 790 385 Z" data-country="australia"/>
+                    
+                    <!-- East Asia -->
+                    <path class="country" d="M 750 150 L 800 145 L 830 170 L 825 200 L 790 210 L 760 195 Z" data-country="east-asia"/>
+                    
+                    <!-- Connection lines from Netherlands to other active countries -->
+                    <line x1="490" y1="130" x2="615" y2="155" stroke="var(--primary-purple)" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.4"/>
+                    <line x1="490" y1="130" x2="700" y2="265" stroke="var(--primary-purple)" stroke-width="1.5" stroke-dasharray="5,5" opacity="0.4"/>
+                </svg>
+            </div>
+
+            <div class="countries-legend">
+                <div class="legend-item">
+                    <div class="legend-dot"></div>
+                    <span class="legend-text">🇳🇱 Netherlands</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot"></div>
+                    <span class="legend-text">🇰🇿 Kazakhstan</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-dot"></div>
+                    <span class="legend-text">🇮🇳 India</span>
                 </div>
             </div>
         </div>
